@@ -12,6 +12,10 @@
         <servlet-name>parseUrlVisits</servlet-name>
         <servlet-class>cliente.servlet.parseUrlVisits</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>createUser</servlet-name>
+        <servlet-class>cliente.servlet.createUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>createUrl</servlet-name>
         <url-pattern>/createUrl</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>parseUrlVisits</servlet-name>
         <url-pattern>/parseUrlVisits</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createUser</servlet-name>
+        <url-pattern>/createUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
