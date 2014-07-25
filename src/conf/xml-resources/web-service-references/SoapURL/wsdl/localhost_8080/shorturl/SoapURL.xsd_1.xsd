@@ -12,6 +12,10 @@
 
 <xs:element name="getURLvisitsResponse" type="tns:getURLvisitsResponse"/>
 
+<xs:element name="getURLvisitsbyUser" type="tns:getURLvisitsbyUser"/>
+
+<xs:element name="getURLvisitsbyUserResponse" type="tns:getURLvisitsbyUserResponse"/>
+
 <xs:element name="validateLogin" type="tns:validateLogin"/>
 
 <xs:element name="validateLoginResponse" type="tns:validateLoginResponse"/>
@@ -23,6 +27,19 @@
 </xs:complexType>
 
 <xs:complexType name="getURLvisitsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createURL">
+<xs:sequence>
+<xs:element name="url" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createURLResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -41,19 +58,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="createURL">
-<xs:sequence>
-<xs:element name="url" type="xs:string" minOccurs="0"/>
-<xs:element name="username" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="createURLResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="crearUsuario">
 <xs:sequence>
 <xs:element name="username" type="xs:string" minOccurs="0"/>
@@ -65,6 +69,18 @@
 <xs:complexType name="crearUsuarioResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getURLvisitsbyUser">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getURLvisitsbyUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

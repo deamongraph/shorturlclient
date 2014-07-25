@@ -32,8 +32,8 @@ public class parseUrlVisits extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
-        String shorturl = request.getParameter("url");
-        String datos = getURLvisits(shorturl);
+       // String shorturl = request.getParameter("url");
+        String datos = getURLvisitsbyUser((String)session.getAttribute("username"));
         session.setAttribute("datos", datos);
         response.sendRedirect("showData.jsp");
         
@@ -78,10 +78,12 @@ public class parseUrlVisits extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private static String getURLvisits(java.lang.String url) {
+    private static String getURLvisitsbyUser(java.lang.String username) {
         cliente.services.SoapURL_Service service = new cliente.services.SoapURL_Service();
         cliente.services.SoapURL port = service.getSoapURLPort();
-        return port.getURLvisits(url);
+        return port.getURLvisitsbyUser(username);
     }
+
+  
 
 }

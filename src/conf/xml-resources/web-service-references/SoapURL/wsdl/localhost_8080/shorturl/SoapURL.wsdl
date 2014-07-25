@@ -4,11 +4,17 @@
 <xsd:import namespace="http://services.shorturl/" schemaLocation="http://localhost:8080/shorturl/SoapURL?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="createURL">
-<part name="parameters" element="tns:createURL"/>
+<message name="validateLogin">
+<part name="parameters" element="tns:validateLogin"/>
 </message>
-<message name="createURLResponse">
-<part name="parameters" element="tns:createURLResponse"/>
+<message name="validateLoginResponse">
+<part name="parameters" element="tns:validateLoginResponse"/>
+</message>
+<message name="getURLvisitsbyUser">
+<part name="parameters" element="tns:getURLvisitsbyUser"/>
+</message>
+<message name="getURLvisitsbyUserResponse">
+<part name="parameters" element="tns:getURLvisitsbyUserResponse"/>
 </message>
 <message name="crearUsuario">
 <part name="parameters" element="tns:crearUsuario"/>
@@ -16,39 +22,52 @@
 <message name="crearUsuarioResponse">
 <part name="parameters" element="tns:crearUsuarioResponse"/>
 </message>
+<message name="createURL">
+<part name="parameters" element="tns:createURL"/>
+</message>
+<message name="createURLResponse">
+<part name="parameters" element="tns:createURLResponse"/>
+</message>
 <message name="getURLvisits">
 <part name="parameters" element="tns:getURLvisits"/>
 </message>
 <message name="getURLvisitsResponse">
 <part name="parameters" element="tns:getURLvisitsResponse"/>
 </message>
-<message name="validateLogin">
-<part name="parameters" element="tns:validateLogin"/>
-</message>
-<message name="validateLoginResponse">
-<part name="parameters" element="tns:validateLoginResponse"/>
-</message>
 <portType name="SoapURL">
-<operation name="createURL">
-<input wsam:Action="http://services.shorturl/SoapURL/createURLRequest" message="tns:createURL"/>
-<output wsam:Action="http://services.shorturl/SoapURL/createURLResponse" message="tns:createURLResponse"/>
+<operation name="validateLogin">
+<input wsam:Action="http://services.shorturl/SoapURL/validateLoginRequest" message="tns:validateLogin"/>
+<output wsam:Action="http://services.shorturl/SoapURL/validateLoginResponse" message="tns:validateLoginResponse"/>
+</operation>
+<operation name="getURLvisitsbyUser">
+<input wsam:Action="http://services.shorturl/SoapURL/getURLvisitsbyUserRequest" message="tns:getURLvisitsbyUser"/>
+<output wsam:Action="http://services.shorturl/SoapURL/getURLvisitsbyUserResponse" message="tns:getURLvisitsbyUserResponse"/>
 </operation>
 <operation name="crearUsuario">
 <input wsam:Action="http://services.shorturl/SoapURL/crearUsuarioRequest" message="tns:crearUsuario"/>
 <output wsam:Action="http://services.shorturl/SoapURL/crearUsuarioResponse" message="tns:crearUsuarioResponse"/>
 </operation>
+<operation name="createURL">
+<input wsam:Action="http://services.shorturl/SoapURL/createURLRequest" message="tns:createURL"/>
+<output wsam:Action="http://services.shorturl/SoapURL/createURLResponse" message="tns:createURLResponse"/>
+</operation>
 <operation name="getURLvisits">
 <input wsam:Action="http://services.shorturl/SoapURL/getURLvisitsRequest" message="tns:getURLvisits"/>
 <output wsam:Action="http://services.shorturl/SoapURL/getURLvisitsResponse" message="tns:getURLvisitsResponse"/>
 </operation>
-<operation name="validateLogin">
-<input wsam:Action="http://services.shorturl/SoapURL/validateLoginRequest" message="tns:validateLogin"/>
-<output wsam:Action="http://services.shorturl/SoapURL/validateLoginResponse" message="tns:validateLoginResponse"/>
-</operation>
 </portType>
 <binding name="SoapURLPortBinding" type="tns:SoapURL">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="createURL">
+<operation name="validateLogin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getURLvisitsbyUser">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -66,7 +85,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getURLvisits">
+<operation name="createURL">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -75,7 +94,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="validateLogin">
+<operation name="getURLvisits">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
